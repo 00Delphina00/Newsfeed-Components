@@ -1,11 +1,7 @@
 
 const toggleMenu = () => {
-  const menuList = document.querySelectorAll("div ul li");
-  if (menu.style.display === "none") {
-      menu.style.display === "block";
-      menuList.style.display === "block";
-      
-  } 
+
+  menu.classList.toggle('menu--open');
   // Toggle the "menu--open" class on your menu refence. 
 }
 
@@ -15,4 +11,7 @@ const menu = document.querySelectorAll('.menu');
 const menuButton = document.querySelector('.menu-button');
 // Using your menuButton reference, add a click handler that calls toggleMenu
 
-menuButton.addEventListener('click', toggleMenu());
+menuButton.addEventListener('click', ()=>{
+  // toggleMenu();
+  alert('.menu--open class added');
+});
