@@ -3,19 +3,21 @@
 class Article {
   constructor(domElement) {
     // assign this.domElement to the passed in domElement
-    this.domElement = domElement;
+     this.domElement = domElement; //.article 
     // create a reference to the ".expandButton" class. 
     this.expandButton = this.domElement.querySelector(".expandButton");
     // Using your expandButton reference, update the text on your expandButton to say "expand"
-    this.expandButton.textContent = "expand";
+    this.expandButton.innerText = "expand"; //ES6
     // Set a click handler on the expandButton reference, calling the expandArticle method.
-    this.expandButton.addEventListener('click', ()=>{ expandArticle();})
+    this.expandButton.addEventListener('click', ()=>{this.expandArticle();});
+     // ES5 
+    // this.expandButton.addEventListener("click", this.expandArticle.bind(this));
   }
 
   expandArticle() {
-    this.domElement.classList.toggle();
+    this.domElement.classList.toggle('article-open');
     // Using our reference to the domElement, toggle a class to expand or hide the article.
-
+    //view in Article.less pops the .article-open class into and out of the domElement to change height & make text visible.  Like nesting in LESS.
   }
 }
 
@@ -29,6 +31,5 @@ class Article {
 
 let articles = document.querySelectorAll(".article");
 
-articles.forEach((item, index)=>{
-  item[i] = new Article;
-});
+articles.forEach(article =>{ new Article(article)});
+
